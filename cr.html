@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSCODE TESTING SITE</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: pink;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #FAEBD7;
+            width: 1000px;
+            height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 19px;
+            position: relative;
+        }
+
+        .scratch-container {
+            position: relative;
+            width: 960px;
+            height: 755px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            display: block;
+        }
+
+        canvas {
+            position: absolute;
+            display: flex;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        #cursorSizeSlider {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scratch-container">
+            <img class="image" src="https://media.tenor.com/MuWqk-dds8EAAAAM/malupiton-malupiton-dila.gif" id="HiddenImage" alt="gif">
+            <canvas id="scratchCanvas"></canvas>
+        </div>
+        <input type="range" id="cursorSizeSlider" min="5" max="150" value="30">
+    </div>
+
+    <script>
+        const canvas = document.getElementById("scratchCanvas");
+        const ctx = canvas.getContext("2d");
+        let isScratching = false;
+        let cursorSize = 30;
+
+        const cursorSizeSlider = document.getElementById("cursorSizeSlider");
+        cursorSizeSlider.addEventListener("input", (e) => {
+            cursorSize = parseInt(e.target.value, 10);
+        });
+
+        function adjustCursorSizeToPercentage(percentage) {
+            cursorSize = Math.max(5, Math.floor(cursorSize * (percentage / 100)));
+            cursorSizeSlider.value = cursorSize;
+        }
+
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            initScratchCard();
+        }
+
+        function initScratchCard() {
+            ctx.fillStyle = "#ccc";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = "destination-out";
+        }
+
+        function scratch(e) {
+            if (!isScratching) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+            const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+            ctx.beginPath();
+            ctx.arc(x, y, cursorSize, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function scratchTouch(e) {
+            if (!isScratching) return;
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
+            const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
+            ctx.beginPath();
+            ctx.arc(x, y, cursorSize, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function startScratch(e) {
+            isScratching = true;
+            scratch(e);
+        }
+
+        function stopScratch() {
+            isScratching = false;
+        }
+
+        canvas.addEventListener("mousedown", startScratch);
+        canvas.addEventListener("mouseup", stopScratch);
+        canvas.addEventListener("mousemove", scratch);
+
+        canvas.addEventListener("touchstart", startScratch);
+        canvas.addEventListener("touchend", stopScratch);
+        canvas.addEventListener("touchmove", scratchTouch);
+
+        window.addEventListener("resize", resizeCanvas);
+
+        adjustCursorSizeToPercentage(250);
+        resizeCanvas();
+    </script>
+</body>
+</html>
