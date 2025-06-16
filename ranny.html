@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEBSITE NI CRAZINA</title>
+    <style>
+        
+       body {
+           background-color: lightpink;
+           font-family: Arial, sans-serif;
+           margin: 0;
+           padding: 0;
+       }
+
+       .marquee {
+           display: flex;
+           height: 50px;
+           background-color: #FFB6C1;
+           color: #ff4d6d;
+           text-shadow: 4px 4px 4px black;
+           font-family: Arial, Helvetica, sans-serif;
+           font-size: 100px;
+           padding: 0;
+           width: 100%;
+           align-items: center;
+           justify-content: center;
+           position: absolute;
+           top: 60px;
+           left: none;
+       }
+
+       .container {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+       }
+
+       .expanded {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+       }
+
+    </style>s
+</head>
+<body>
+    <div class="marquee">
+        <marquee behavior="alternate" direction="left" scrollamount="1.0s"><h1>HAPPY BIRTHDAY!!!</h1></marquee>
+    </div>
+
+    <script>
+        const marquee = document.querySelector('.marquee');
+        const marqueeText = marquee.querySelector('h1');
+
+        let marqueeWidth = marquee.offsetWidth;
+        let textWidth = marqueeText.offsetWidth;
+
+        marqueeText.style.transform = translateX(${marqueeWidth}px);
+
+        const speed = 5;
+        const endPos = -textWidth;
+
+        let pos = marqueeWidth;
+
+        function loop() {
+            pos -= speed;
+            if (pos < endPos) {
+                pos = marqueeWidth;
+            }
+
+            marqueeText.style.transform = translateX(${pos}px);
+
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+    </script>
+</body>
+</html>
