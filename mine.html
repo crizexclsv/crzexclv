@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE NG BABY KO</title>
+    <link rel="stylesheet" href="happybirthdaylove.css">
+    <script src="happybirthdaylove.js"></script>
+    <style>
+        body {
+            background-color: lightpink;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #FAEBD7; 
+            width: 400px;
+            height: 165px;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            display: inline-block;
+            border-radius: 19px;
+            overflow: hidden;            
+            transition: all 1.0s ease;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            text-shadow: 2px 2px 2px black;
+            font-family: Arial, Helvetica, sans-serif; 
+            margin-bottom: 10px;
+        }
+
+        .button {
+            background-color: #DC143C;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 1.0s ease;
+        }
+
+        .button.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scratch-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .image {
+            display: block;
+            width: 400px;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 2px 1px 1px pink;
+        }
+
+          
+        .sol{
+           color: red;
+         }
+
+        .luna {
+          color: blue;
+        }
+
+        .lover {
+         color: green;
+        }
+        
+        .sol {
+            color:  #FFD700;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .luna {
+            color:#C4A7E7;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .beloved {
+            color:#f08239;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .wife {
+            color:#FFB6C1;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .love {
+            color: #FF69B4;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .enjoyyourday {
+            color: #ff5050;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px black;
+        }
+        .husband {
+            color: #f7c364;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        #scratchCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            border-radius: 10px;
+        }
+
+        .container.expanded {
+            width: 570px;
+            height: auto;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <h1>HAPPY BIRTHDAY!!!</h1>
+        <button class="button" onclick="expandContainer(this)">CLICK THIS</button>
+        <div class="centered-content">
+            <div class="scratch-container">
+                <img class="image" id="hiddenImage" src="https://media1.giphy.com/media/onPMdPD9wI4rWA6KaT/giphy.gif" alt="image">
+                <canvas id="scratchCanvas" style="display: none;"></canvas>
+            </div>
+            <p>Hi love happy happy birthday🥳💛!</p>
+            <p>Umm... san koba 'to uumpisahan</p>
+            <p>Sa dami ng gusto kong sabihin sayo, diko na alam anong uunahin ko hehe...</p>
+            <p>Siguro sa pasasalamat kasi sa mga panahon na kailangan ko ng kausap nandyan ka,</p>
+            <p>sa mga panahong kailanagan ko ng karamay, masasandalan, mapagsasabihan ng problema nandyan ka.</p>
+            <p>Salamat dahil sa dami ng nagkakagusto sayo, ako parin pinili mo</p> 
+            <p>(syempre mas gwapo ako sa kanila anoh).</p>
+            <p>Pasensya na kung minsan parang nawawalan ako ng oras sayo,</p> 
+            <p>sobrang busy lang talaga kung minsan. Alam mo busy talaga sa buhay ang mister mo...</p>
+            <p>hindi ito mahaba kasi alam mo naman mahina ako dito sa mga gantong bagay-bagay</p>
+            <p>marami pa akong gustong sabihin kaso hirap icode hehe...(wala pa masyadong experience)</p>
+            <p><b>I love you so much my <span class="sol">sol</span>, <b>&</b>
+            <span class="luna">luna</span>, 
+            <b>and</b> 
+            <span class="beloved">beloved</span> 
+            <span class="wife">wife</span>,
+            <p>I love you so much my <span class="love">love💛!</span></p> 
+            <p><span class="enjoyyourday">enjoy your day!</span></p>
+            <b><p>From your <span class="husband">husband</span>, John Cris</p></b>
+            <h3><a href="https://youtu.be/l5NQx0Ze6Mk?si=_zu-Pe6i_tdVufMQ">PLEASE CLICK THIS</a></h3>
+        </div>
+    </div>
+
+    <script>
+        function expandContainer(button) {
+            const container = button.parentElement;
+            container.classList.add('expanded');
+            button.classList.add('hidden'); 
+            const canvas = document.getElementById("scratchCanvas");
+            const image = container.querySelector('.image');
+            if (image) {
+                image.classList.add('fade-in');
+                canvas.style.display = "block"; 
+                resizeCanvas();
+                initScratchCard(); 
+            }
+        }
+
+        window.onload = () => {
+            const canvas = document.getElementById("scratchCanvas");
+            if (!canvas) {
+                console.error("Canvas element not found!");
+                return;
+            }
+            const ctx = canvas.getContext("2d");
+            if (!ctx) {
+                console.error("Canvas context could not be initialized!");
+                return;
+            }
+
+            let isScratching = false;
+            let cursorSize = 30;
+
+            function resizeCanvas() {
+                const image = document.getElementById("hiddenImage");
+                if (!image) {
+                    console.error("Image element not found!");
+                    return;
+                }
+                canvas.width = image.offsetWidth;
+                canvas.height = image.offsetHeight;
+                canvas.style.position = "absolute";
+                canvas.style.top = image.offsetTop + "px";
+                canvas.style.left = image.offsetLeft + "px";
+            }
+
+            function initScratchCard() {
+                ctx.fillStyle = "#ccc";
+                ctx.fillRect(0, 0, canvas.width, canvas.height); 
+                ctx.globalCompositeOperation = "destination-out"; 
+            }
+
+            function scratch(e) {
+                if (!isScratching) return;
+                const rect = canvas.getBoundingClientRect();
+                const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+                const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+                ctx.beginPath();
+                ctx.arc(x, y, cursorSize, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            function scratchTouch(e) {
+                if (!isScratching) return;
+                e.preventDefault();
+                const rect = canvas.getBoundingClientRect();
+                const touch = e.touches[0];
+                const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
+                const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
+                ctx.beginPath();
+                ctx.arc(x, y, cursorSize, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            function startScratch(e) {
+                isScratching = true;
+                if (e.type === "touchstart") {
+                    scratchTouch(e);
+                } else {
+                    scratch(e);
+                }
+            }
+
+            function stopScratch() {
+                isScratching = false;
+            }
+
+            canvas.addEventListener("mousedown", startScratch);
+            canvas.addEventListener("mouseup", stopScratch);
+            canvas.addEventListener("mousemove", scratch);
+
+            canvas.addEventListener("touchstart", startScratch);
+            canvas.addEventListener("touchend", stopScratch);
+            canvas.addEventListener("touchmove", scratchTouch);
+
+            window.addEventListener("resize", () => {
+                resizeCanvas();
+                initScratchCard();
+            });
+
+            resizeCanvas();
+            initScratchCard();
+        };
+    </script>
+</body>
+</html>
