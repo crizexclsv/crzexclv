@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ka-emehan ni Javier</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffd0c3;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+      perspective: 1500px;
+    }
+
+    .card-container {
+      width: 900px;
+      height: 500px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: translateX(0);
+      transition: transform 1.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    .card-container.open {
+      transform: translateX(150px);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .right-panel {
+      width: 50%;
+      height: 110%;
+      background-color: #fff0d5;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    .right-panel img {
+      max-width: 100%;
+      max-height: 250px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .left-panel {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: left center;
+      transition: transform 1.2s cubic-bezier(0.77, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 10px 0 0 10px;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+      padding-left: 30px;
+    }
+
+    .left-front, .left-back {
+      width: 100%;
+      height: 110%;
+      padding: 20px;
+      border-radius: 10px 0 0 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .left-front {
+      background-color: #ffe6a3;
+      transform: rotateY(0deg);
+      z-index: 2;
+    }
+
+    .left-back {
+      background-color: #ffefd0;
+      text-align: left;
+      transform: rotateY(180deg);
+      z-index: 1;
+      padding-left: 20px;
+      align-items: flex-start;
+    }
+
+    .right-panel h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: rgb(137, 137, 215);
+    }
+
+    .left-panel h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: rgb(232, 50, 129);
+    }
+
+    .left-back .top-left-text {
+      margin: 0 0 10px 0;
+      font-weight: bold;
+      font-size: 1.5em;
+      align-self: flex-start;
+    }
+
+    .card-container.open .left-panel {
+      transform: rotateY(-179.9deg);
+    }
+
+    [contenteditable] {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="card" class="card-container">
+    <div class="card-inner">
+      <div class="right-panel">
+        <img src="https://media.tenor.com/bSxMql9TY7cAAAAM/cute2.gif" alt="Love Gif" />
+        <div>
+          <h2 contenteditable="true">To the biggest champ</h2>
+          <p contenteditable="true">
+            Ayy, Mustard on the beat, ho<br>
+            Deebo any rap nigga, he a free throw<br>
+            Man down, call an amberlamps, tell him, "Breathe, bro"<br>
+            Nail a nigga to the cross, he walk around like Teezo<br><br>
+            <span style="color: red;">HELLMERRY</span>
+          </p>
+        </div>
+      </div>
+      <div class="left-panel">
+        <div class="left-front">
+          <h2 contenteditable="true">Folding card</h2>
+        </div>
+        <div class="left-back">
+          <h2 class="top-left-text" contenteditable="true">Not like us by Kendrick Lamar</h2>
+          <p contenteditable="true">
+            Say, Drake, I hear you like 'em young<br>
+            You better not ever go to cell block one<br>
+            To any bitch that talk to him and they in love<br>
+            Just make sure you hide your lil' sister from him
+          </p>
+          <p contenteditable="true">
+            They tell me Chubbs the only one that get your hand-me-downs<br>
+            And Party at the party playin' with his nose now<br>
+            And Baka got a weird case, why is he around?<br>
+            Certified Lover Boy? Certified pedophiles
+          </p>
+          <p contenteditable="true">
+            Wop, wop, wop, wop, wop, Dot, fuck 'em up<br>
+            Wop, wop, wop, wop, wop, I'ma do my stuff<br>
+            Why you trollin' like a bitch? Ain't you tired?<br>
+            Tryna strike a chord and it's probably A minor<br><br>
+            One, two, three, four, five, plus five, ayy<br>
+            Devil is a lie, he a 69 God, ayy
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById("card");
+    card.addEventListener("click", function (event) {
+     
+      if (!event.target.isContentEditable) {
+        card.classList.toggle("open");
+      }
+    });
+  </script>
+</body>
+</html>
